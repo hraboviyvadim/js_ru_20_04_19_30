@@ -17,6 +17,7 @@ class Comments extends React.Component {
     getCommentsList = () => {
         const {comments = []} = this.props;
         const commentsList = comments.map(comment => {
+            //в идеале Comment тоже в отдельный компонент вынести
             return (
                 <li key={comment.id} className="comment">
                     <div className="comment__user">{comment.user}</div>
