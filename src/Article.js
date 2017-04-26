@@ -32,6 +32,7 @@ export default class Article extends Component {
         return this.state.isOpen && (
             <div>
                 <div>{this.props.article.text}</div>
+                {/*Я б эту проверку спрятал в Comments */}
                 {!!comments && <Comments comments={comments} />}
             </div>
         )
