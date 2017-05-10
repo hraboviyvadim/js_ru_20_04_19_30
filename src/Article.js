@@ -33,7 +33,7 @@ export default class Article extends Component {
             <div>
                 <div>{this.props.article.text}</div>
                 {/*Я б эту проверку спрятал в Comments */}
-                {!!comments && <Comments comments={comments} />}
+                <Comments comments={comments} />
             </div>
         )
     }

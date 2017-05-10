@@ -1,4 +1,5 @@
 import React from 'react';
+import Comment from './Comment';
 
 class Comments extends React.Component {
     constructor() {
@@ -16,29 +17,33 @@ class Comments extends React.Component {
 
     getCommentsList = () => {
         const {comments = []} = this.props;
-        const commentsList = comments.map(comment => {
+        return comments.map(comment => {
             //в идеале Comment тоже в отдельный компонент вынести
             return (
                 <li key={comment.id} className="comment">
-                    <div className="comment__user">{comment.user}</div>
-                    <div className="comment__text">{comment.text}</div>
+                    <Comment comment={comment}/>
                 </li>
             )
         });
-        return this.state.isComments && commentsList;
     };
 
     render() {
-        return (
-            <div className="comments">
-                <div className="comments__topper">
-                    <button onClick={this.toggleComments} type="button">
+        const comments = this.getCommentsList();
+        if(comments.length) {
+          return (
+              <div className="comments">
+                  <div className="comments__topper">
+                      <button onClick={this.toggleComments} type="button">
                         {this.state.isComments ? 'Close comments' : 'Open comments'}
-                    </button>
-                </div>
-                {this.getCommentsList()}
-            </div>
-          );
+                      </button>
+                  </div>
+                {this.state.isComments ? this.getCommentsList() : null}
+              </div>
+            );
+        } else {
+            return <p>No comments yet.</p>;
+        }
+
     }
 }
 
