@@ -7,11 +7,11 @@ class Article extends Component {
         article: PropTypes.shape({
             title: PropTypes.string.isRequired,
             text: PropTypes.string,
-            comments: PropTypes.array
+            comments: PropTypes.arrayOf(PropTypes.object)
         }),
         //from toggleOpen decorator
-        isOpen: PropTypes.bool,
-        toggleOpen: PropTypes.func
+        isOpen: PropTypes.bool.isRequired,
+        toggleOpen: PropTypes.func.isRequired
     }
 
 /*
