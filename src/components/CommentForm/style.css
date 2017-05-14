@@ -1,0 +1,19 @@
+.comment-form input {
+  height: 20px;
+  width: 100px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+.comment-form textarea {
+  display: inline-block;
+  vertical-align: top;
+  height: 40px;
+  width: 100px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+.comment-form input.error, .comment-form textarea.error {
+  border-color: red;
+}
