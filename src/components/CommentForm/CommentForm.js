@@ -8,6 +8,7 @@ class CommentForm extends React.Component {
       name: '',
       nameValid: true,
       text: '',
+      //держи минимальный стейт. Эти поля ты можешь определить из предыдущих прямо в render()
       textValid: true
     }
   }
