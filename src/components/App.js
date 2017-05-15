@@ -4,7 +4,7 @@ import Chart from './Chart'
 import UserForm from './UserForm'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
-
+//а календарь?
 class App extends Component {
     static propTypes = {
 
