@@ -6,37 +6,17 @@ class CommentForm extends React.Component {
     super();
     this.state = {
       name: '',
-      nameValid: true,
-      text: '',
-      textValid: true
+      text: ''
     }
   }
   handleNameChange = e => {
     if (e.target.value.length > 20) return;
-    if (e.target.value.length < 5) {
-      this.setState({
-        nameValid: false
-      })
-    } else {
-      this.setState({
-        nameValid: true
-      })
-    }
     this.setState({
       name: e.target.value
     })
   };
   handleTextChange = e => {
     if (e.target.value.length > 20) return;
-    if (e.target.value.length < 5) {
-      this.setState({
-        textValid: false
-      })
-    } else {
-      this.setState({
-        textValid: true
-      })
-    }
     this.setState({
       text: e.target.value
     })
@@ -45,8 +25,10 @@ class CommentForm extends React.Component {
     e.preventDefault();
   };
   render() {
-    const nameClass = this.state.nameValid ? '' : 'error';
-    const textClass = this.state.textValid ? '' : 'error';
+    const name = this.state.name;
+    const text = this.state.text;
+    const nameClass = name.length >= 5 || name.length === 0 ? '' : 'error';
+    const textClass = text.length >= 5 || text.length === 0 ? '' : 'error';
     return (
       <form action="#" className="comment-form" onSubmit={this.handleSubmit}>
         <p>Add you own comment:</p>

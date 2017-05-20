@@ -4,6 +4,7 @@ import Chart from './Chart'
 import UserForm from './UserForm'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
+import Calendar from './Calendar'
 
 class App extends Component {
     static propTypes = {
@@ -31,6 +32,7 @@ class App extends Component {
         return (
             <div>
                 <UserForm />
+                <Calendar/>
                 <a href = "#" onClick = {this.updateCounter}>update chart</a>
                 <Select options = {options} value = {this.state.selection}
                         onChange = {this.handleSelectionChange}
