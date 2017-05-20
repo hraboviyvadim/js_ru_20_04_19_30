@@ -4,6 +4,7 @@ import Chart from './Chart'
 import UserForm from './UserForm'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
+
 import Calendar from './Calendar'
 
 class App extends Component {
