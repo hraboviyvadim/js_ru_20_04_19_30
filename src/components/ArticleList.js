@@ -8,7 +8,7 @@ import {connect} from 'react-redux'
 class ArticleList extends Component {
     componentDidMount() {
         const ref = this.refs[this.props.articles[0].id]
-        console.log('---', ref, findDOMNode(ref))
+//        console.log('---', ref, findDOMNode(ref))
     }
 
 
@@ -22,6 +22,7 @@ class ArticleList extends Component {
                      ref = {article.id}
             />
         </li>)
+
         return (
             <ul ref={this.getContainerRef}>
                 {elements}
@@ -41,6 +42,15 @@ ArticleList.propTypes = {
     isItemOpened: PropTypes.func.isRequired
 }
 
-export default connect((state) => ({
-   articles: state.articles
-}))(accordion(ArticleList))
+export default connect((state) => {
+    const {selected, dateRange: {from, to}} = state.filters;
+    const filteredArticles = state.articles.filter((article) => {
+      const date = Date.parse(article.date);
+      return (!selected.length || selected.includes(article.id)) && (!from || !to || date >= Date.parse(from) && date <= Date.parse(to));
+    })
+    console.log(filteredArticles);
+    return {
+        //articles: state.articles
+        articles: filteredArticles
+    }
+})(accordion(ArticleList))
